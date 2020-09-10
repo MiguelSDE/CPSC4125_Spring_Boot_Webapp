@@ -34,4 +34,21 @@ public class HelloController {
         return "about";
     }
 
+
+
+
+    //add another GET and POST similar to contact, public postBlog(Blog)
+    //new object Blog takes a string
+    @GetMapping("/blog")
+    public String blog(Model model){
+        return "blog";
+    }
+
+    @PostMapping("/blog")
+    public String postContact(Model model, @RequestBody Blog blog){
+        //Contact create object
+        System.out.println(blog.getEmail());
+        System.out.println(blog.getMessage());
+        return "blog";
+    }
 }
