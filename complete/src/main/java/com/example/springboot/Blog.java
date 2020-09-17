@@ -1,16 +1,7 @@
 package com.example.springboot;
 
 public class Blog {
-    private String email;
     private String message;
-
-    public String getEmail(){
-        return email;
-    }
-
-    public void setEmail(String newEmail){
-        this.email = newEmail;
-    }
 
     public String getMessage(){
         return message;

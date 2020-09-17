@@ -23,11 +23,9 @@ submit button -->
         <h1 class="display-4">Blog</h1>
         <p class="lead">Fill out blog stuff.</p>
         <hr class="my-4">
+        <div id ="blogAjaxResponse">
+        </div>
         <form id="blog-form">
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Example textarea</label>
                 <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -51,15 +49,18 @@ submit button -->
             event.preventDefault();
             //default way to send data is as a JSON {"var":"value","var":"value"....}
             //get Values from the form above and assign to variable names
-            var formData = {"email": exampleFormControlInput1.value, "message": exampleFormControlTextarea1.value};
+            var formData = {"message": exampleFormControlTextarea1.value};
             $.ajax({
                 type: 'POST',
                 url: '/blog',
                 data: JSON.stringify(formData),
                 contentType: "application/json; charset=utf-8",
-                dataType: "json",
                 success: function(data){
-                    console.log(data);
+                    $('#blogAjaxResponse').html(data)
+                },
+                error: function(e){
+                    console.log(e)
+                    $('#blogAjaxResponse').html('<span>Sorry we couldnt complete your request</span>');
                 }
             });
         });

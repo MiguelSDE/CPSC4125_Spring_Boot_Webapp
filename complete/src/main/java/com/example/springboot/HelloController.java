@@ -45,10 +45,9 @@ public class HelloController {
     }
 
     @PostMapping("/blog")
-    public String postContact(Model model, @RequestBody Blog blog){
-        //Contact create object
-        System.out.println(blog.getEmail());
-        System.out.println(blog.getMessage());
-        return "blog";
+    public String postBlog(Model model, @RequestBody Blog blog){
+        // return fragments blogResponse
+        model.addAttribute("message", blog.getMessage());
+        return "fragments/blogResponse :: #blogSuccess";
     }
 }
