@@ -10,8 +10,20 @@
     font-size: 1.5em;
 }
 
-/* #nasaAPOD{
-    background: url(https://apod.nasa.gov/apod/image/2009/ig_maxmin.jpg) no-repeat;
-    height: 100vh;
+#nasaAPOD{
+    width: 30%;
+    height: 750px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    float: left;
+}
+
+#nasaAPOD p {
+    padding: 10px 10px 0px 20px;
     color: white;
-} */
+    font: 14px Monaco, Mono-Space; 
+    margin-top: 2em ;
+    margin-bottom: 2em ;
+  }
+
