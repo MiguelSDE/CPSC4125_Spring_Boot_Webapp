@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"  /> 
+    <!-- <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"  />  -->
     <title>Greeting</title>
   </head>
   <body>
@@ -39,10 +39,10 @@
                 dataType: 'json',
                 success: function(data){
                     console.log(data);
-                    //$('#nasaAPOD').css('background',"url('" + data.url + "')");      
-                    //$('#nasaAPOD').html(data.url);      //prints the title, url, and such that I need
-                    //$('#nasaAPOD').(data.date)      //prints the title, url, and such that I need
-                    $('#nasaAPOD').css('background',"url('" + data.url + "')"; "height: 50vw";);      //continue troubleshooting this
+                    //$('#nasaAPOD').css('background',"url('" + data.url + "')");      //works kinda
+                    // Need to print date, explanation, & title!!!!
+                    $('#nasaAPOD').html(data.url);      //prints the title, url, and such that I need
+                    //$('#nasaAPOD').(data.date)      //prints the date, url, and such that I need
                 },
                 error: function(e){
                     console.log(e)
