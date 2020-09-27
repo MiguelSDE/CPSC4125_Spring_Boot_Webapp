@@ -8,17 +8,19 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"  /> 
+
     <title>Greeting</title>
   </head>
   <body>
     <div th:replace="fragments/header :: header(content='home')"></div>
 
     <div class="jumbotron">
-        <h1 class = "display-4"><p th:text="'Hello, ' + ${name} + '!'" /></h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <h1 class = "display-4"><p th:text="'Welcome to my website!'"></h1>
+        <!-- <h1 class = "display-4"><p th:text="'Hello, ' + ${name} + '!'" /></h1> -->
+        <p class="lead">In here, you can contact me, learn more about me, or post anything you'd like.</p>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <p>I am a suicide prevention advocate and I am very passionate about it.</p>
+        <a class="btn btn-primary btn-lg" href="/about" role="button">Learn more about me and my passions</a>
     </div>
 
     <!-- Added div to load image of the day with id -->
@@ -41,15 +43,12 @@
                 dataType: 'json',
                 success: function(data){
                     console.log(data);
-                    $('#nasaAPOD').css('background-image',"url('" + data.url + "')");      //works kinda
-                    // Need to print date, explanation, & title!!!!
-                    //$('#nasaAPOD').html(data.url);      //prints the title, url, and such that I need
+                    var pictureOfTheDay = "'<img src=" + data.url + ">'";
 
-                    $('#nasaAPOD').html("<p> Date:<br>" + data.date + "</p>" + 
-                    "<p>Explanation:<br>" + data.explanation + "</p>" + 
-                    "<p>Title:<br>" + data.title + "</p>");      //prints the title, url, and such that I need
-
-                    //$('#nasaAPOD').(data.date)      //prints the date, url, and such that I need
+                    $('#nasaAPOD').html("<h4>Title:</h4>" + "<p>" + data.title + "</p>" +   //displays the title
+                    "<h4>Explanation:</h4>" + "<p>"+ data.explanation + "</p>" +            //displays the explanation
+                    "<h4>Date:</h4>" + "<p>" + data.date + "</p>" +                         //displays the date
+                    pictureOfTheDay);                                                       //displays the picture of the day
                 },
                 error: function(e){
                     console.log(e)
@@ -59,3 +58,5 @@
     </script>
   </body>
 </html>
+
+

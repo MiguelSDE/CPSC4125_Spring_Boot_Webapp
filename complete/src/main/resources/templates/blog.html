@@ -1,10 +1,3 @@
-<!-- form 
-ajax call
-the nav
-input box for message
-submit button -->
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,6 +7,7 @@ submit button -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"  />
 
     <title>Blog</title>
   </head>
@@ -21,13 +15,13 @@ submit button -->
     <div th:replace="fragments/header :: header(content='blog')"></div>
     <div class="jumbotron">
         <h1 class="display-4">Blog</h1>
-        <p class="lead">Fill out blog stuff.</p>
+        <p class="lead">Post something interesting, inspiring, or fun!</p>
         <hr class="my-4">
         <div id ="blogAjaxResponse">
         </div>
         <form id="blog-form">
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Example textarea</label>
+                <label for="exampleFormControlTextarea1">Type your message here ⇓</label>
                 <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
